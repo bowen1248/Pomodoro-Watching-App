@@ -65,15 +65,15 @@ struct StatisticView: View {
                     VStack(alignment: .leading) {
                         Text("已完成任務總數")
                             .font(.system(size: 20))
-                        Text("10")
+                        Text(statisticService.totalMissionFinished)
                             .font(.system(size: 24, weight: .semibold))
                         }
                     
                     Chart {
-                        ForEach(0..<7, id:\.hashValue) { count in
+                        ForEach(weekIndex, id:\.hashValue) { count in
                             LineMark(
                                 x: .value("星期", week[count]),
-                                y: .value("完成", tomatoCount[count])
+                                y: .value("完成", statisticService.statisticByMissionCount[count])
                             )
                         }
                     }

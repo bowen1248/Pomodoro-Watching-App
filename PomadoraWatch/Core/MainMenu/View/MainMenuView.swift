@@ -116,6 +116,7 @@ extension MainMenuView {
             Button {
                 if viewModel.isStart == false {
                     viewModel.startTimer()
+                    TomatoTimingService.shared.startActiveCountdown()
                 } else {
                     viewModel.pauseTimer()
                 }

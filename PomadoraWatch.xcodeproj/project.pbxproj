@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F47C4AE32A27156D00194551 /* StatisticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C4AE22A27156D00194551 /* StatisticService.swift */; };
+		F47C4AE62A306ADD00194551 /* TomatoTimingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C4AE52A306ADD00194551 /* TomatoTimingService.swift */; };
 		F4DF27F62A1624DC00539587 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF27F52A1624DC00539587 /* MainMenuViewModel.swift */; };
 		F4F690FD29FF452A0041E0D5 /* PomadoraWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F690FC29FF452A0041E0D5 /* PomadoraWatchApp.swift */; };
 		F4F6910129FF452A0041E0D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F6910029FF452A0041E0D5 /* Assets.xcassets */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		F47C4AE22A27156D00194551 /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
+		F47C4AE42A30537300194551 /* PomadoraWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PomadoraWatch.entitlements; sourceTree = "<group>"; };
+		F47C4AE52A306ADD00194551 /* TomatoTimingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoTimingService.swift; sourceTree = "<group>"; };
 		F4DF27F52A1624DC00539587 /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		F4F690F929FF452A0041E0D5 /* PomadoraWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomadoraWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F690FC29FF452A0041E0D5 /* PomadoraWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomadoraWatchApp.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		F4F690FB29FF452A0041E0D5 /* PomadoraWatch */ = {
 			isa = PBXGroup;
 			children = (
+				F47C4AE42A30537300194551 /* PomadoraWatch.entitlements */,
 				F4F691422A0BA71D0041E0D5 /* Services */,
 				F4F6911F2A00A35C0041E0D5 /* Extensions */,
 				F4F6911C2A00A29C0041E0D5 /* Models */,
@@ -271,6 +275,7 @@
 			children = (
 				F4F691432A0BA73B0041E0D5 /* TodoService.swift */,
 				F47C4AE22A27156D00194551 /* StatisticService.swift */,
+				F47C4AE52A306ADD00194551 /* TomatoTimingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				F4F691472A0C848F0041E0D5 /* String.swift in Sources */,
 				F4F6911029FF70AA0041E0D5 /* SideMenuButton.swift in Sources */,
 				F4F691212A00A3730041E0D5 /* DeveloperPreview.swift in Sources */,
+				F47C4AE62A306ADD00194551 /* TomatoTimingService.swift in Sources */,
 				F4F691142A00A0A90041E0D5 /* SideMenuView.swift in Sources */,
 				F4F691192A00A1480041E0D5 /* SideMenuOptionViewModel.swift in Sources */,
 				F4F6910E29FF45B30041E0D5 /* MainMenuView.swift in Sources */,
@@ -508,6 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PomadoraWatch/PomadoraWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PomadoraWatch/Preview Content\"";
@@ -537,6 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PomadoraWatch/PomadoraWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PomadoraWatch/Preview Content\"";

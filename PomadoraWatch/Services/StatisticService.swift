@@ -25,10 +25,12 @@ class StatisticByFinishedMissionCountResponse: Codable {
     let body: [TotalFocusTimeByDay]
 }
 
-class StatisticService:  ObservableObject {
+class StatisticService: ObservableObject {
     static let shared = StatisticService()
     @Published var statisticsBySec: [Int] = [0, 0, 0, 0, 0, 0, 0]
+    @Published var statisticByMissionCount: [Int] = [0, 0, 0, 0, 0, 0, 0]
     @Published var thisWeekTime: String = ""
+    @Published var totalMissionFinished: String = ""
     
     func fetchStatisticsBySec(completion: @escaping () -> ()) {
         let url = URL(string: "https://3cunhp8c47.execute-api.us-east-1.amazonaws.com/Prod/records/statistics?userId=8787878787")!
@@ -40,6 +42,7 @@ class StatisticService:  ObservableObject {
                 do {
                     let todo = try decoder.decode(StatisticResponse.self, from: data)
                     DispatchQueue.main.async {
+                        print(todo.body)
                         var tmp: [Int] = []
                         tmp.append(todo.body.Sunday)
                         tmp.append(todo.body.Monday)
@@ -83,22 +86,20 @@ class StatisticService:  ObservableObject {
                         print(todo.body)
                         
                         var tmp: [Int] = []
-                        tmp.append(todo.body[1].Sunday)
-                        tmp.append(todo.body[1].Monday)
-                        tmp.append(todo.body[1].Tuesday)
-                        tmp.append(todo.body[1].Wednesday)
-                        tmp.append(todo.body[1].Thursday)
-                        tmp.append(todo.body[1].Friday)
-                        tmp.append(todo.body[1].Saturday)
-                        self.statisticsBySec = tmp
+                        tmp.append(todo.body[0].Sunday)
+                        tmp.append(todo.body[0].Monday)
+                        tmp.append(todo.body[0].Tuesday)
+                        tmp.append(todo.body[0].Wednesday)
+                        tmp.append(todo.body[0].Thursday)
+                        tmp.append(todo.body[0].Friday)
+                        tmp.append(todo.body[0].Saturday)
+                        self.statisticByMissionCount = tmp
                         
                         var sum: Int = 0
                         for i in tmp {
                             sum += i
                         }
-                        let hr = sum / 3600
-                        let min = sum / 60
-                        self.thisWeekTime = String(hr) + " hr " + String(min) + " min"
+                        self.totalMissionFinished = String(sum)
                     }
                     
                 } catch {
