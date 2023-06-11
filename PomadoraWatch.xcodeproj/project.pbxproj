@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BDFC829EC7D65E3C6AD8DD7 /* Pods_PomadoraWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B3F647BBF0EB35AE0B28FC /* Pods_PomadoraWatch.framework */; };
 		F47C4AE32A27156D00194551 /* StatisticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C4AE22A27156D00194551 /* StatisticService.swift */; };
 		F47C4AE62A306ADD00194551 /* TomatoTimingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C4AE52A306ADD00194551 /* TomatoTimingService.swift */; };
 		F4DF27F62A1624DC00539587 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF27F52A1624DC00539587 /* MainMenuViewModel.swift */; };
@@ -40,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77F84CBEC0E1B8C781CC7D92 /* Pods-PomadoraWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomadoraWatch.release.xcconfig"; path = "Target Support Files/Pods-PomadoraWatch/Pods-PomadoraWatch.release.xcconfig"; sourceTree = "<group>"; };
+		B3B3F647BBF0EB35AE0B28FC /* Pods_PomadoraWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PomadoraWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E482B4AF6E0FBB0CD46E8F86 /* Pods-PomadoraWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomadoraWatch.debug.xcconfig"; path = "Target Support Files/Pods-PomadoraWatch/Pods-PomadoraWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		F47C4AE22A27156D00194551 /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
 		F47C4AE42A30537300194551 /* PomadoraWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PomadoraWatch.entitlements; sourceTree = "<group>"; };
 		F47C4AE52A306ADD00194551 /* TomatoTimingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoTimingService.swift; sourceTree = "<group>"; };
@@ -79,17 +83,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BDFC829EC7D65E3C6AD8DD7 /* Pods_PomadoraWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		618A5041E1DE48CD94BD4158 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3B3F647BBF0EB35AE0B28FC /* Pods_PomadoraWatch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD1249CE5637CC9AC89FEE60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E482B4AF6E0FBB0CD46E8F86 /* Pods-PomadoraWatch.debug.xcconfig */,
+				77F84CBEC0E1B8C781CC7D92 /* Pods-PomadoraWatch.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F4F690F029FF452A0041E0D5 = {
 			isa = PBXGroup;
 			children = (
 				F4F690FB29FF452A0041E0D5 /* PomadoraWatch */,
 				F4F690FA29FF452A0041E0D5 /* Products */,
+				AD1249CE5637CC9AC89FEE60 /* Pods */,
+				618A5041E1DE48CD94BD4158 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -298,9 +323,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4F6910729FF452A0041E0D5 /* Build configuration list for PBXNativeTarget "PomadoraWatch" */;
 			buildPhases = (
+				A2DB7E7546DFA0ABDA4E0747 /* [CP] Check Pods Manifest.lock */,
 				F4F690F529FF452A0041E0D5 /* Sources */,
 				F4F690F629FF452A0041E0D5 /* Frameworks */,
 				F4F690F729FF452A0041E0D5 /* Resources */,
+				A3A97BE3A2777118E8B62BB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -355,6 +382,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2DB7E7546DFA0ABDA4E0747 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PomadoraWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3A97BE3A2777118E8B62BB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PomadoraWatch/Pods-PomadoraWatch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PomadoraWatch/Pods-PomadoraWatch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PomadoraWatch/Pods-PomadoraWatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4F690F529FF452A0041E0D5 /* Sources */ = {
@@ -511,6 +580,7 @@
 		};
 		F4F6910829FF452A0041E0D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E482B4AF6E0FBB0CD46E8F86 /* Pods-PomadoraWatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -541,6 +611,7 @@
 		};
 		F4F6910929FF452A0041E0D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77F84CBEC0E1B8C781CC7D92 /* Pods-PomadoraWatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

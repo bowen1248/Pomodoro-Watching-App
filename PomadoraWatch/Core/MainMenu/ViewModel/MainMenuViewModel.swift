@@ -15,11 +15,27 @@ class MainMenuViewModel: NSObject, ObservableObject {
     private var startTime: Int = 0
     private var timer: Timer? = nil
     
+    override init() {
+        super.init()
+        TomatoTimingService.shared.registerSubscriptions { action in
+            DispatchQueue.main.async {
+                if action == "start_record" {
+                    self.startTimer()
+                    print(action)
+                } else if action == "end_record" {
+                    self.resetTimer()
+                }
+            }
+        }
+    }
+    
     func startTimer() {
         if timer == nil {
             isPause = false
             isStart = true
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(secDiminish), userInfo: nil, repeats: true)
+        } else {
+            remainTime = 150000
         }
     }
     
@@ -36,18 +52,19 @@ class MainMenuViewModel: NSObject, ObservableObject {
         if timer != nil {
             isPause = false
             isStart = false
-            timer = nil
             timer!.invalidate()
-            remainTime = 150000
+            timer = nil
         }
+        remainTime = 150000
     }
     
     @objc func secDiminish() {
-        remainTime -= 1
-        var sec: Int = remainTime / 100
+        if (remainTime >= 0) {
+            remainTime -= 1
+        }
+        let sec: Int = remainTime / 100
         DispatchQueue.main.async {
             self.timeText = String(format: "%d:%2d", (sec / 60), (sec % 60))
         }
-        //print(timeText)
     }
 }

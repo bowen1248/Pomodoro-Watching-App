@@ -5,23 +5,6 @@
 //  Created by hsnl on 2023/5/1.
 //
 
-/*
-NavigationStack {
-    ZStack {
-        if showSideMenu {
-            SideMenuView(user: user)
-        }
-        
-        mapView
-            .offset(x: showSideMenu ? 316 : 0)
-            .shadow(color: showSideMenu ? .black : .clear,
-                    radius: 10)
-    }
-    .onAppear {
-        showSideMenu = false
-    }
-}
-*/
 import SwiftUI
 
 struct MainMenuView: View {
@@ -114,13 +97,16 @@ extension MainMenuView {
                 .padding(.top)
             
             Button {
+                TomatoTimingService.shared.startActiveCountdown()
+                /*
                 if viewModel.isStart == false {
                     viewModel.startTimer()
-                    TomatoTimingService.shared.startActiveCountdown()
+                    
                 } else {
                     viewModel.pauseTimer()
                 }
                 print(viewModel.timeText)
+                 */
             } label: {
                 Ellipse()
                     .foregroundColor(.cyan)
