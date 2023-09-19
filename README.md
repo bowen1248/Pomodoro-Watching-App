@@ -1,6 +1,6 @@
-#  Pomodora Watch iOS App
+#  Pomodoro Watching iOS App
 
-Pomodora Watch iOS App is a productivity app, which builds on pomodora technique, to help user focus on present and planning future. While this app have basic functionality such as timer, to-do list, records, notification, just like others productivity app. However, unlike traditional productivity app, Pomodora Watch are more capable than that. By combining image recognition and Internet Of Things, Pomodora Watch App can __actively monitor__ user outside the phone to the real world (by RPi4 camera). And determine the result of this pomodoro clock iteration is successful or not. 
+Pomodoro Watching iOS App is a productivity app, which builds on pomodoro technique, to help user focus on present and planning future. While this app have basic functionality such as timer, to-do list, records, notification, just like others productivity app. However, unlike traditional productivity app, Pomodoro Watching are more capable than that. By combining image recognition and Internet Of Things, Pomodoro Watching App can __actively monitor__ user outside the phone to the real world (by RPi4 camera). And determine the result of this pomodoro clock iteration is successful or not. 
 
 ## Note
 Because the backend AWS cloud have been shutdown, so the app right now is not working.
@@ -13,9 +13,9 @@ Because the backend AWS cloud have been shutdown, so the app right now is not wo
 * Track your productivity with insightful charts.
 * E-mail notification will be sent 5 mins before the task begin.
 * Everyday's todos will be sent at user selected time.
-* App's Pomodora clock will automatically start when user sit in front RPi's camera (passive mode).
-* App's Pomodora clock will start if user click countdown(計時) button in main page (active mode).
-* App's Pomodora clock will restart if user left the camera.
+* App's Pomodoro clock will automatically start when user sit in front RPi's camera (passive mode).
+* App's Pomodoro clock will start if user click countdown(計時) button in main page (active mode).
+* App's Pomodoro clock will restart if user left the camera.
 * When pomodoro cycle ended, RPi will alarm
 
 ## Development Setup
@@ -33,7 +33,7 @@ Before you begin, you should already have the Xcode downloaded and set up correc
 
 ## Setting up the iOS Project
 
-1. Download the Pomodora Watch iOS App project source. You can do this either by forking and cloning the repository (recommended if you plan on pushing changes) or by downloading it as a ZIP file and extracting it. OR
+1. Download the Pomodoro Watching iOS App project source. You can do this either by forking and cloning the repository (recommended if you plan on pushing changes) or by downloading it as a ZIP file and extracting it. OR
 ```
 $ git clone https://github.com/bowen1248/Pomodoro-Watching-App.git
 ```
