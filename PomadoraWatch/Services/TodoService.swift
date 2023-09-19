@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class TodoResponse: Codable {
     let body: [Task]
 }
@@ -39,7 +38,32 @@ class TodoService: ObservableObject {
         task.resume()
     }
     
-    func uploadTask(userId: String = "8787878787", timestamp: Date, name: String, description: String) {
+    func fetchTasksByNowAndReturn(completion: @escaping ([Task]) -> ()) {
+        let now = String(Date().timeIntervalSince1970)
+        let url = URL(string: "https://3cunhp8c47.execute-api.us-east-1.amazonaws.com/Prod/todos/query?userId=8787878787&start_timestamp=\(now)&end_timestamp=1783561600")!
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let todo = try decoder.decode(TodoResponse.self, from: data)
+                    DispatchQueue.main.async {
+                        completion(todo.body)
+                        print(todo.body)
+                    }
+                } catch {
+                    print(error)
+                }
+            } else if let error = error {
+                print("HTTP Request Failed \(error)")
+            }
+        }
+
+        task.resume()
+    }
+    
+    func uploadTask(userId: String = "8787878787", timestamp: Date, name: String, description: String, completion: @escaping () -> ()) {
         let url = URL(string: "https://3cunhp8c47.execute-api.us-east-1.amazonaws.com/Prod/todos/insert")!
         var request = URLRequest(url: url)
         let json: [String: Any] = ["userId": userId,
@@ -66,6 +90,7 @@ class TodoService: ObservableObject {
                 return
             }
             print("Upload data succeed")
+            completion()
             self.fetchTasks()
         }
 

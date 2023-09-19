@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddMissionView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var isFullDay = false
     @State var name = ""
     @State var selectedDate = Date()
@@ -26,7 +27,11 @@ struct AddMissionView: View {
             Spacer()
             Button {
                 print(selectedDate)
-                TodoService.shared.uploadTask(timestamp: selectedDate, name: name, description: description)
+                TodoService.shared.uploadTask(timestamp: selectedDate, name: name, description: description) {
+                    DispatchQueue.main.async {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                }
             } label: {
                 Text("新增")
                     .fontWeight(.bold)

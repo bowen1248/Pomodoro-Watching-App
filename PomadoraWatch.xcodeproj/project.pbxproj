@@ -44,6 +44,7 @@
 		77F84CBEC0E1B8C781CC7D92 /* Pods-PomadoraWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomadoraWatch.release.xcconfig"; path = "Target Support Files/Pods-PomadoraWatch/Pods-PomadoraWatch.release.xcconfig"; sourceTree = "<group>"; };
 		B3B3F647BBF0EB35AE0B28FC /* Pods_PomadoraWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PomadoraWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E482B4AF6E0FBB0CD46E8F86 /* Pods-PomadoraWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomadoraWatch.debug.xcconfig"; path = "Target Support Files/Pods-PomadoraWatch/Pods-PomadoraWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		F41A79012AB29EC70063637F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F47C4AE22A27156D00194551 /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
 		F47C4AE42A30537300194551 /* PomadoraWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PomadoraWatch.entitlements; sourceTree = "<group>"; };
 		F47C4AE52A306ADD00194551 /* TomatoTimingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoTimingService.swift; sourceTree = "<group>"; };
@@ -104,13 +105,13 @@
 				E482B4AF6E0FBB0CD46E8F86 /* Pods-PomadoraWatch.debug.xcconfig */,
 				77F84CBEC0E1B8C781CC7D92 /* Pods-PomadoraWatch.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		F4F690F029FF452A0041E0D5 = {
 			isa = PBXGroup;
 			children = (
+				F41A79012AB29EC70063637F /* README.md */,
 				F4F690FB29FF452A0041E0D5 /* PomadoraWatch */,
 				F4F690FA29FF452A0041E0D5 /* Products */,
 				AD1249CE5637CC9AC89FEE60 /* Pods */,

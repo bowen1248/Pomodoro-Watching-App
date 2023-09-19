@@ -21,7 +21,7 @@ struct SideMenuView: View {
             VStack(alignment: .leading, spacing: 32) {
                 // user info
                 HStack {
-                    Image("tomato")
+                    Image("handsome_guy")
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle())

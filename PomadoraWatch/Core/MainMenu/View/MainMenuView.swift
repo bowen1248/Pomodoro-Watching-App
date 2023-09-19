@@ -11,14 +11,13 @@ struct MainMenuView: View {
     let user = User(fullname: "Bowen",
                     email: "test@gmail.com",
                     uid: NSUUID().uuidString)
-    @State private var showSideMenu = false
     @ObservedObject private var viewModel = MainMenuViewModel()
     
     var body: some View {
         NavigationStack {
             ZStack(alignment: .leading) {
                 ZStack(alignment: .top) {
-                    SideMenuButton(showSideMenu: $showSideMenu)
+                    SideMenuButton(showSideMenu: $viewModel.showSideMenu)
                     
                     Rectangle()
                         .frame(height: 1)
@@ -29,13 +28,18 @@ struct MainMenuView: View {
                     
                     background
                     tomatoTimer
+                    
+                    if viewModel.showTaskSelectionList == true {
+                        taskSelectionView
+                            .padding(.top, 500)
+                    }
                 }
-                .offset(x: showSideMenu ? 300 : 0)
+                .offset(x: viewModel.showSideMenu ? 300 : 0)
                 
-                if showSideMenu {
+                if viewModel.showSideMenu {
                     ZStack {
                         Color.white
-                            .shadow(color: showSideMenu ? .black : .clear,
+                            .shadow(color: viewModel.showSideMenu ? .black : .clear,
                                     radius: 10)
                         SideMenuView(user: user)
                     }
@@ -44,11 +48,14 @@ struct MainMenuView: View {
                 }
             }
             .onAppear {
-                showSideMenu = false
-                TodoService.shared.fetchTasks()
+                viewModel.showSideMenu = false
+                //TodoService.shared.fetchTasks()
             }
         }
         .toolbar(.hidden)
+        .onAppear {
+            viewModel.fetchTasksAndSet()
+        }
     }
 }
 
@@ -92,9 +99,14 @@ extension MainMenuView {
             }
             .padding(.top, 200)
             
-            Text("任務：完成Lab9作業")
-                .font(.system(size: 24, weight: .semibold))
-                .padding(.top)
+            Button {
+                viewModel.showTaskSelectionList.toggle()
+            } label: {
+                Text("任務： \(viewModel.selectedTask)")
+                    .font(.system(size: 24, weight: .semibold))
+                    .padding(.top)
+                    .foregroundColor(.black)
+            }
             
             Button {
                 TomatoTimingService.shared.startActiveCountdown()
@@ -120,7 +132,34 @@ extension MainMenuView {
             }
         }
     }
-
+    
+    var taskSelectionView: some View {
+        ZStack(alignment: .top) {
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(.white)
+            
+            VStack(alignment: .center) {
+                Text("請選擇現在要做的事")
+                    .font(.system(.title2))
+                    .fontWeight(.bold)
+                
+                Divider()
+                List {
+                    ForEach(viewModel.taskList, id: \.self) { task in
+                        Text(task.name)
+                            .font(.system(.headline))
+                            .onTapGesture {
+                                viewModel.selectedTask = task.name
+                                viewModel.showTaskSelectionList = false
+                            }
+                    }
+                }
+                .scrollContentBackground(.hidden)
+            }
+            .padding(.top)
+        }
+        .frame(height: 250)
+    }
 }
 
 

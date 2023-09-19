@@ -18,7 +18,8 @@ class SideMenuViewModel {
         "“Nature has given us all the pieces required to achieve exceptional wellness and health, but has left it to us to put these pieces together.” — Diane McLaren"
     ]
     func randomQuote() -> String {
-        let randomInt = Int.random(in: 0 ..< (quotes.count - 1))
+        // let randomInt = Int.random(in: 0 ..< (quotes.count - 1))
+        let randomInt: Int = 1
         return quotes[randomInt]
     }
 }

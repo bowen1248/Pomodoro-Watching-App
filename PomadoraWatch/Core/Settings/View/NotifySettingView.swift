@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct NotifySettingView: View {
-    @State var isEnabled = false
-    @State var showDatePicker = false
+    @State var realTimeNotifyIsEnabled = true
+    @State var fullDayTaskNotifyIsEnabled = true
+    @State var showDatePicker = true
     @State var pickTime = Date()
     
     var body: some View {
         VStack(alignment: .center) {
-            Toggle("任務通知", isOn: $isEnabled)
+            Toggle("任務通知", isOn: $realTimeNotifyIsEnabled)
             Divider()
-            Toggle("整天通知", isOn: $isEnabled)
+            Toggle("整天通知", isOn: $fullDayTaskNotifyIsEnabled)
             HStack {
                 Text("每日 " + pickTime.toTimeString())
                 Spacer()

@@ -19,7 +19,7 @@ struct SettingsView: View {
                 Section {
                     // user info
                     HStack {
-                        Image("tomato")
+                        Image("handsome_guy")
                             .resizable()
                             .scaledToFill()
                             .clipShape(Circle())

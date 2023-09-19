@@ -42,7 +42,6 @@ class StatisticService: ObservableObject {
                 do {
                     let todo = try decoder.decode(StatisticResponse.self, from: data)
                     DispatchQueue.main.async {
-                        print(todo.body)
                         var tmp: [Int] = []
                         tmp.append(todo.body.Sunday)
                         tmp.append(todo.body.Monday)
@@ -58,7 +57,7 @@ class StatisticService: ObservableObject {
                             sum += i
                         }
                         let hr = sum / 3600
-                        let min = sum / 60
+                        let min = (sum - hr * 3600) / 60
                         self.thisWeekTime = String(hr) + " hr " + String(min) + " min"
                     }
                     

@@ -9,8 +9,7 @@ import SwiftUI
 import Charts
 
 struct StatisticView: View {
-    let tomatoCount: [Int] = [1, 3, 6, 5, 2, 4, 3]
-    let week: [String] = ["一", "二", "三", "四", "五", "六", "日"]
+    let week: [String] = ["日", "一", "二", "三", "四", "五", "六"]
     @State var weekIndex: [Int] = [0, 1, 2, 3, 4, 5, 6]
     @State var weekday = 0
     @ObservedObject var statisticService = StatisticService.shared
@@ -29,7 +28,7 @@ struct StatisticView: View {
                         VStack(alignment: .leading) {
                             Text("總番茄")
                                 .font(.system(size: 20))
-                            Text("0")
+                            Text("\(statisticService.statisticsBySec.reduce(0, +) / 1500)")
                                 .font(.system(size: 24, weight: .semibold))
                         }
                         VStack(alignment: .leading) {
@@ -44,7 +43,7 @@ struct StatisticView: View {
                         ForEach(weekIndex, id:\.hashValue) { count in
                             BarMark(
                                 x: .value("星期", week[count]),
-                                y: .value("完成", statisticService.statisticsBySec[count])
+                                y: .value("完成", (statisticService.statisticsBySec[count] / 60))
                             )
                         }
                     }
@@ -91,7 +90,7 @@ struct StatisticView: View {
             let calendar = Calendar.current
             self.weekday = calendar.component(.weekday, from: today)
             for i in 0..<7 {
-                var tmp = weekday + i - 1
+                var tmp = weekday + i
                 if tmp >= 7 {
                     tmp = tmp - 7
                 }
